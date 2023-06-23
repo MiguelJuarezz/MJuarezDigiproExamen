@@ -140,7 +140,7 @@ function Sumar(check, valor) {
     else {
         total = total - valor;
     }
-    $('#total').text(total)
+    $('#total').text(total) 
 };
 
 function Add(idAlumno, idMateria) {
