@@ -1,0 +1,139 @@
+﻿@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Asignar Materias:</h2>
+            <p> PUEDE VER LAS MATERIAS ASIGNADAS A CADA ALUMNO O AGREGAR ALGUNA MATERIA EXTRA</p>
+            <hr />
+        </div>
+    </div>
+</div>
+
+<br />
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="~/js/Usuario/AlumnoMateriaCRUD.js"></script>
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-10">
+        </div>
+        <div class="col-md-1" style="padding-left:100px">
+        </div>
+    </div>
+
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table id="tblAlumno" class="table table-hover" border="1">
+                <thead>
+                    <tr>
+                        <th class="text-center" scope="col">Asignar</th>
+
+                        <th class="text-center" scope="col" style="display:none;">IdAlumno</th>
+                        <th class="text-center" scope="col">Nombre</th>
+                        <th class="text-center" scope="col">Apellido Paterno</th>
+                        <th class="text-center" scope="col">Apellido Materno</th>
+                    </tr>
+
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<div class="modal fade" id="ModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="lblTitulo">Formulario de Alumno:</h4>
+                
+                <button type="button" class="btn btn-success"  id="btnAgregar" style="display:none;" onclick="GetAllMateriaNoAsignada()">Agregar</button>
+            </div>
+
+            <div class="modal-body">
+                <input type="text" class="form-control" id="txtApellidoPaterno" style="display:none;" />
+
+                <table id="tblMateriaAsignada" class="table table-hover" border="1" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="display:none;" scope="col">IdMateria</th>
+                            <th class="text-center" scope="col">Nombre</th>
+                            <th class="text-center" scope="col">Costo</th>
+
+                            <th class="text-center" scope="col" id="thEliminar">Eliminar</th>
+                        </tr>
+
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <table id="tblMateriaNoAsignada" class="table table-hover" border="1" style="display: none">
+                    <thead>
+                        <tr>
+                            <th class="text-center" scope="col" style="display:none;">IdMateria</th>
+                            <th class="text-center" scope="col" id="thSelec">seleccionar</th>
+                            <th class="text-center" scope="col">Nombre</th>
+                            <th class="text-center" scope="col">Costo</th>
+
+                        </tr>
+                        
+
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    
+                </table>
+                <div class="col-md-12" id="divTotal" style="display: none">
+                    <label> Costo Total <label id="total">0</label></label>
+                </div>
+               
+                <button type="button" class="btn btn-success  glyphicon-edit" id="btnMandar" style="display: none" onclick="ListaMaterias()">Agregar Materias</button>
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="hideModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Detalle</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <h5>
+                                Acción completada con éxito
+                            </h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" value="Regresar" data-dismiss="modal">Regresar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
